@@ -1,0 +1,17 @@
+@import 'mixins';
+@import 'override_material';
+
+.container-toolbar {
+  .toolbar-row {
+    @include flex-center();
+    justify-content: space-between;
+    section {
+      @include mat-icon-button-default-hover();
+      @include flex-center();
+      gap: 10px;
+      img {
+        width: 110px;
+      }
+    }
+  }
+}

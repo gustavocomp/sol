@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="container-toolbar">
+  <mat-toolbar-row class="toolbar-row">
+    <section>
+      <mat-icon matTooltipClass="tooltip" matTooltip="{{ tooltipMessage | transloco }}" (click)="toogleSideNav()">{{
+        toogleIcon
+      }}</mat-icon>
+      <img src="assets/images/logo.svg" alt="logo" />
+    </section>
+    <section>
+      <sol-change-language />
+      <mat-icon matTooltipClass="tooltip" matTooltip="{{ 'LABELS.MSG0010' | transloco }}" (click)="logout()">logout</mat-icon>
+    </section>
+  </mat-toolbar-row>
+</mat-toolbar>

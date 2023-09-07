@@ -1,0 +1,73 @@
+<sol-dialog-template [dialogTemplateConfig]="dialogTemplateConfig">
+  <main class="container-content">
+    <form [formGroup]="form" class="default-form">
+      <div class="content-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0003' | transloco }}</mat-label>
+          <input matInput solInitialFocus formControlName="email" />
+          <mat-icon matPrefix>mail</mat-icon>
+          <mat-error *ngIf="form.controls.email?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+          <mat-error *ngIf="!form.controls.email?.hasError('required') && form.controls.email?.hasError('email')">
+            {{ 'ERRORS.MSG0002' | transloco }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="content-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0017' | transloco }}</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="form.controls.name?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+          <mat-error *ngIf="form.controls.name?.hasError('minlength') || form.controls.name?.hasError('maxlength')"
+            >{{ 'ERRORS.MSG0004' | transloco }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0031' | transloco }}</mat-label>
+          <input matInput [mask]="MASKS.CPF" formControlName="cpf" />
+          <mat-error *ngIf="form.controls.cpf?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+          <mat-error *ngIf="!form.controls.cpf?.hasError('required') && form.controls.cpf?.hasError('cpf')">{{
+            'ERRORS.MSG0005' | transloco
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="content-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0035' | transloco }}</mat-label>
+          <mat-select formControlName="country">
+            <mat-option *ngFor="let countries of usersCountries" [value]="countries.value">{{ countries.value }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls.country?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" (click)="picker.open()">
+          <mat-label>{{ 'LABELS.MSG0032' | transloco }}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateBirth" readonly />
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="content-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0033' | transloco }}</mat-label>
+          <input
+            #autocomplete
+            matInput
+            formControlName="profession"
+            [matAutocomplete]="auto"
+            (input)="filter()"
+            (focus)="filter()" />
+          <mat-autocomplete requireSelection #auto="matAutocomplete">
+            <mat-option *ngFor="let profession of filteredUsersProfessions" [value]="profession">
+              {{ profession }}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error *ngIf="form.controls.profession?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="content-row-wrapper">
+        <mat-slide-toggle formControlName="married" checked color="primary">{{ 'LABELS.MSG0034' | transloco }}</mat-slide-toggle>
+      </div>
+    </form>
+  </main>
+</sol-dialog-template>

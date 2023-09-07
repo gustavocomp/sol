@@ -1,0 +1,81 @@
+@import 'mixins';
+@import 'colors';
+@import 'override_material';
+@import 'variables';
+
+::ng-deep {
+  .sign-in-form-field {
+    @include align-text-form-field();
+  }
+}
+
+:host {
+  @include host-page();
+}
+
+.container-sign-in {
+  @include host-page-background-image('../../../../../assets/images/background-sign-in.jpg');
+  @include flex-center();
+  width: 100%;
+  height: 100%;
+
+  .sign-in-card {
+    @include flex-start(column);
+    width: 100%;
+    max-width: 500px;
+    margin: 15px;
+
+    .sign-in-card-title,
+    .sign-in-card-subtitle {
+      width: 100%;
+      background-color: $primary-color;
+      color: $text-white-color;
+      padding: 0 $padding-default $padding-default;
+    }
+
+    .sign-in-card-title {
+      padding: $padding-default;
+      font-size: $title-font-size;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .mat-mdc-card-content {
+      width: 100%;
+    }
+    .sign-in-form {
+      width: 100%;
+      padding-top: $padding-default;
+      @include flex-center(column);
+      gap: 10px;
+
+      .sign-in-form-icon {
+        color: $icon-color;
+      }
+
+      .sign-in-form-field {
+        width: 100%;
+      }
+
+      .sign-in-form-button {
+        width: 100%;
+        @include button-default-size();
+      }
+    }
+
+    .sign-in-form-link {
+      @include flex-center();
+      justify-content: flex-end;
+      width: 100%;
+      padding: $padding-default $padding-default 0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: $primary-color;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}

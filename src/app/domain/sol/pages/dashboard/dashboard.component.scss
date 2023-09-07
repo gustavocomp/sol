@@ -1,0 +1,6 @@
+@import 'mixins';
+@import 'colors';
+
+.dashboard-content {
+  @include page-container();
+}

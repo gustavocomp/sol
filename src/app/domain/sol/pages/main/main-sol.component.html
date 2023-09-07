@@ -1,0 +1,23 @@
+<main class="container-main">
+  <sol-toolbar [matDrawer]="drawer" />
+  <mat-drawer-container class="main-drawer-container">
+    <mat-drawer #drawer opened [mode]="matDrawerMode" class="main-drawer">
+      <sol-avatar [info]="email" [imageURL]="'https://encurtador.com.br/ACGIR'" />
+      <mat-nav-list class="main-drawer-list" [tabindex]="0">
+        <a
+          class="main-drawer-list-item"
+          routerLinkActive="router-link-active"
+          mat-list-item
+          [routerLink]="item.route"
+          *ngFor="let item of listMenu">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.name | transloco }}</span>
+        </a>
+      </mat-nav-list>
+    </mat-drawer>
+
+    <div class="main-content">
+      <router-outlet />
+    </div>
+  </mat-drawer-container>
+</main>

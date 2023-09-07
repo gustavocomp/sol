@@ -1,0 +1,14 @@
+::ng-deep {
+  .container-content-dialog.mat-mdc-dialog-content {
+    width: 100%;
+    max-width: 350px;
+  }
+  .container-confirm-dialog.mat-mdc-dialog-actions {
+    justify-content: center;
+    padding: 0 24px 20px;
+    flex-wrap: nowrap;
+    button {
+      width: 100%;
+    }
+  }
+}

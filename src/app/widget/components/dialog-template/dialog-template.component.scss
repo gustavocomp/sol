@@ -1,0 +1,44 @@
+@import 'mixins';
+@import 'colors';
+@import 'media';
+@import 'variables';
+
+.container-dialog-template {
+  @include full-size();
+
+  .dialog-template-toolbar {
+    @include flex-center();
+    justify-content: space-between;
+    width: 100%;
+
+    .toolbar-title {
+      font-size: 1.4rem;
+      white-space: normal;
+    }
+
+    .toolbar-icon {
+      cursor: pointer;
+    }
+  }
+
+  .dialog-template-main {
+    padding: 1rem;
+  }
+
+  .dialog-template-footer {
+    @include flex-center();
+    justify-content: flex-end;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+
+    @include media-breakpoint('lt-md') {
+      flex-direction: column;
+      align-items: flex-start;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

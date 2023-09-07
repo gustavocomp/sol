@@ -1,0 +1,66 @@
+{
+  "LABELS": {
+    "MSG0001": "Sign in",
+    "MSG0002": "Sign out",
+    "MSG0003": "Email",
+    "MSG0004": "Password",
+    "MSG0005": "Forgot my password",
+    "MSG0006": "Access Control",
+    "MSG0007": "Welcome!",
+    "MSG0008": "Dashboard",
+    "MSG0009": "Administration",
+    "MSG0010": "Log out of the system",
+    "MSG0011": "Collapse menu",
+    "MSG0012": "Expand menu",
+    "MSG0013": "Actions",
+    "MSG0014": "Change Permission",
+    "MSG0015": "Edit",
+    "MSG0016": "Delete",
+    "MSG0017": "Name",
+    "MSG0018": "Phone",
+    "MSG0019": "Website",
+    "MSG0020": "Users",
+    "MSG0021": "ID",
+    "MSG0022": "Yes",
+    "MSG0023": "No",
+    "MSG0024": "Attention",
+    "MSG0025": "Do you want to delete this record?",
+    "MSG0026": "Cancel",
+    "MSG0027": "Save",
+    "MSG0028": "Edit User",
+    "MSG0029": "New User",
+    "MSG0030": "The data will be lost, do you want to continue?",
+    "MSG0031": "CPF",
+    "MSG0032": "Birth",
+    "MSG0033": "Profession",
+    "MSG0034": "Married",
+    "MSG0035": "Countries"
+  },
+  "ERRORS": {
+    "MSG0001": "This field is required",
+    "MSG0002": "The value provided is not a valid email address",
+    "MSG0003": "Invalid credentials",
+    "MSG0004": "The field must be between 3 and 100 characters",
+    "MSG0005": "The value is not a valid CPF"
+  },
+  "SUCCESS": {
+    "MSG0001": "Login successful",
+    "MSG0002": "Record deleted",
+    "MSG0003": "Record saved successfully",
+    "MSG0004": "Record changed successfully"
+  },
+  "LANGUAGE": {
+    "MSG0001": "Language",
+    "MSG0002": "Portuguese",
+    "MSG0003": "English",
+    "MSG0004": "Spanish"
+  },
+  "TABLE": {
+    "MSG0001": "Itens per page:",
+    "MSG0002": "First page",
+    "MSG0003": "Last page",
+    "MSG0004": "Next page",
+    "MSG0005": "Previous page",
+    "MSG0006": "Page {{page}} of {{pages}}"
+  }
+}

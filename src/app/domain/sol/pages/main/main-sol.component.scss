@@ -1,0 +1,57 @@
+@import 'mixins';
+@import 'colors';
+@import 'media';
+@import 'override_material';
+@import 'variables';
+
+:host {
+  @include host-page();
+}
+
+::ng-deep {
+  .main-drawer-container {
+    .main-drawer-list {
+      .main-drawer-list-item {
+        .mat-mdc-list-item-unscoped-content {
+          @include flex-start();
+          align-items: center;
+          gap: 10px;
+          mat-icon {
+            color: $icon-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.container-main {
+  @include full-size();
+  .main-drawer-container {
+    height: $height-main-content-desktop;
+    @include media-breakpoint('lt-sm') {
+      height: $height-main-content-mobile;
+    }
+
+    .main-drawer {
+      box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.137);
+      .main-drawer-list {
+        padding: 0;
+        .main-drawer-list-item {
+          padding: 0 60px 0 20px;
+        }
+        .router-link-active {
+          mat-icon,
+          span {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+
+    .main-content {
+      background-color: $text-white-color;
+      height: 100%;
+    }
+  }
+}

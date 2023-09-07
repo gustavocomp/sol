@@ -1,0 +1,6 @@
+<h1 mat-dialog-title>{{ 'LABELS.MSG0024' | transloco }}</h1>
+<div class="container-content-dialog" mat-dialog-content>{{ message }}</div>
+<div class="container-confirm-dialog" mat-dialog-actions>
+  <button mat-stroked-button color="primary" (click)="response(true)">{{ 'LABELS.MSG0022' | transloco }}</button>
+  <button mat-stroked-button color="warn" (click)="response(false)">{{ 'LABELS.MSG0023' | transloco }}</button>
+</div>

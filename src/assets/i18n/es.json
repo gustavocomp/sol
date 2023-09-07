@@ -1,0 +1,66 @@
+{
+  "LABELS": {
+    "MSG0001": "Iniciar sesión",
+    "MSG0002": "Cerrar sesión",
+    "MSG0003": "Correo electrónico",
+    "MSG0004": "Contraseña",
+    "MSG0005": "Olvidé mi contraseña",
+    "MSG0006": "Control de acceso",
+    "MSG0007": "¡Bienvenido!",
+    "MSG0008": "Panel de control",
+    "MSG0009": "Administración",
+    "MSG0010": "Cerrar sesión del sistema",
+    "MSG0011": "Ocultar menú",
+    "MSG0012": "Mostrar menú",
+    "MSG0013": "Acciones",
+    "MSG0014": "Cambiar permiso",
+    "MSG0015": "Editar",
+    "MSG0016": "Eliminar",
+    "MSG0017": "Nombre",
+    "MSG0018": "Teléfono",
+    "MSG0019": "Sitio",
+    "MSG0020": "Usuarios",
+    "MSG0021": "ID",
+    "MSG0022": "Sí",
+    "MSG0023": "No",
+    "MSG0024": "Atención",
+    "MSG0025": "¿Quieres eliminar este registro?",
+    "MSG0026": "Cancelar",
+    "MSG0027": "Salvar",
+    "MSG0028": "Editar Usuário",
+    "MSG0029": "Nuevo usuario",
+    "MSG0030": "Los datos se perderán, ¿quieres continuar?",
+    "MSG0031": "CPF",
+    "MSG0032": "Nacimiento",
+    "MSG0033": "Profesión",
+    "MSG0034": "Casado",
+    "MSG0035": "Países"
+  },
+  "ERRORS": {
+    "MSG0001": "Este campo es obligatorio",
+    "MSG0002": "El valor proporcionado no es una dirección de correo electrónico válida",
+    "MSG0003": "Credenciales inválidas",
+    "MSG0004": "El campo debe tener entre 3 y 100 caracteres",
+    "MSG0005": "El valor no es un CPF válido"
+  },
+  "SUCCESS": {
+    "MSG0001": "¡Inicio de sesión exitoso!",
+    "MSG0002": "Registro excluido",
+    "MSG0003": "Registro guardado con éxito",
+    "MSG0004": "Registro modificado con éxito"
+  },
+  "LANGUAGE": {
+    "MSG0001": "Idioma",
+    "MSG0002": "Portugués",
+    "MSG0003": "Inglés",
+    "MSG0004": "Español"
+  },
+  "TABLE": {
+    "MSG0001": "Elementos por página:",
+    "MSG0002": "Primera página",
+    "MSG0003": "Última página",
+    "MSG0004": "Página siguiente",
+    "MSG0005": "Página anterior",
+    "MSG0006": "Página {{page}} de {{pages}}"
+  }
+}

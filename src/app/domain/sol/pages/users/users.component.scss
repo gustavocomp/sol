@@ -1,0 +1,4 @@
+@import 'mixins';
+.user-content {
+  @include page-container();
+}

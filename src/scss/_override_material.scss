@@ -1,0 +1,42 @@
+@import 'colors';
+
+@mixin align-text-form-field() {
+  .mat-mdc-form-field-infix {
+    padding-top: 20px !important;
+  }
+}
+
+@mixin button-default-size() {
+  font-size: 1.2rem;
+  height: 45px;
+}
+
+@mixin mat-error-default-font() {
+  mat-error {
+    font-size: 0.8rem;
+  }
+}
+
+@mixin mat-icon-button-default-hover() {
+  mat-icon {
+    cursor: pointer;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+@mixin tooltip-default-font() {
+  .tooltip {
+    font-size: 0.7rem;
+  }
+}
+
+@mixin mat-icon-default-size() {
+  .mat-mdc-form-field-icon-prefix {
+    mat-icon {
+      font-size: 1.5rem;
+      color: #707070;
+    }
+  }
+}

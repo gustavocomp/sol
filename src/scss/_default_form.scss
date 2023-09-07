@@ -1,0 +1,17 @@
+@import 'mixins';
+
+form.default-form {
+  @include flex-center(column);
+  gap: 12px;
+  width: 100%;
+
+  .content-row-wrapper {
+    @include flex-center();
+    width: 100%;
+    gap: 12px;
+
+    :nth-child(n + 1) {
+      width: 100%;
+    }
+  }
+}

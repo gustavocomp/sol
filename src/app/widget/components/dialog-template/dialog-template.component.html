@@ -1,0 +1,29 @@
+<div class="container-dialog-template" *ngIf="dialogTemplateConfig">
+  <mat-toolbar
+    class="dialog-template-toolbar"
+    [style.background-color]="dialogTemplateConfig.colorToolbar"
+    [color]="dialogTemplateConfig.colorToolbar ?? 'primary'">
+    <h1 class="toolbar-title">{{ dialogTemplateConfig.title | transloco }}</h1>
+    <mat-icon class="toolbar-icon" (click)="dialogTemplateConfig.close()">close</mat-icon>
+  </mat-toolbar>
+  <main class="dialog-template-main">
+    <ng-content></ng-content>
+  </main>
+  <footer class="dialog-template-footer">
+    <ng-container *ngFor="let button of dialogTemplateConfig.actionButtons">
+      <button
+        [color]="button.color"
+        [ngClass]="{
+          'mat-mdc-button mat-mdc-raised-button': 'raised' === button.type,
+          'mdc-button--outlined mat-mdc-outlined-button': 'stroked' === button.type,
+          'mat-mdc-unelevated-button': 'flat' === button.type,
+          'mat-mdc-menu-item mdc-list-item': 'menu' === button.type
+        }"
+        (click)="button.onClick()"
+        [disabled]="button.disabled"
+        mat-button>
+        {{ button.label | transloco }}
+      </button>
+    </ng-container>
+  </footer>
+</div>

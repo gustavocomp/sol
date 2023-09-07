@@ -1,0 +1,37 @@
+<main class="container-sign-in">
+  <mat-card class="sign-in-card">
+    <span class="sign-in-card-title">{{ 'LABELS.MSG0006' | transloco }}</span>
+    <span class="sign-in-card-subtitle">{{ 'LABELS.MSG0007' | transloco }}</span>
+
+    <mat-card-content>
+      <form class="sign-in-form" [formGroup]="signInForm" (ngSubmit)="submitForm()">
+        <mat-form-field class="sign-in-form-field" appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0003' | transloco }}</mat-label>
+          <input solInitialFocus matInput formControlName="email" />
+          <mat-icon class="sign-in-form-icon" matPrefix>person</mat-icon>
+
+          <mat-error *ngIf="signInForm.get('email')?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+          <mat-error *ngIf="!signInForm.get('email')?.hasError('required') && signInForm.get('email')?.hasError('email')">{{
+            'ERRORS.MSG0002' | transloco
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="sign-in-form-field" appearance="outline">
+          <mat-label>{{ 'LABELS.MSG0004' | transloco }}</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+          <mat-icon class="sign-in-form-icon" matPrefix>lock</mat-icon>
+          <mat-icon class="sign-in-form-icon" matSuffix (click)="showPasswordToggle($event)">{{
+            showPassword ? 'visibility_off' : 'visibility'
+          }}</mat-icon>
+          <mat-error *ngIf="signInForm.get('password')?.hasError('required')">{{ 'ERRORS.MSG0001' | transloco }}</mat-error>
+        </mat-form-field>
+
+        <button [disabled]="signInForm.invalid" class="sign-in-form-button" mat-raised-button color="primary">
+          {{ 'LABELS.MSG0001' | transloco }}
+        </button>
+      </form>
+
+      <a class="sign-in-form-link" href="#">{{ 'LABELS.MSG0005' | transloco }}</a>
+    </mat-card-content>
+  </mat-card>
+</main>

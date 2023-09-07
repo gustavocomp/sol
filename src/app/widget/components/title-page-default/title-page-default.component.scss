@@ -1,0 +1,15 @@
+@import 'colors';
+
+.container-title-page-default {
+  padding: 40px;
+  background-color: $background-color;
+  box-shadow: 0px 1px 8px -3px #0000006e;
+  margin-bottom: 5px;
+
+  .title-page-default {
+    font-size: 2rem;
+    color: $primary-color;
+    word-wrap: break-word;
+    font-weight: normal;
+  }
+}

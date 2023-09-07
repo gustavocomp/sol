@@ -1,0 +1,77 @@
+<div #containerTable solResize (selfSize)="selfSize($event)">
+  <table
+    class="container-custom-table"
+    aria-label="table"
+    mat-table
+    [fixedLayout]="true"
+    [dataSource]="dataSource"
+    matSort
+    multiTemplateDataRows>
+    <!-- Colunas Comuns -->
+    <ng-container [matColumnDef]="column.propertyKey" *ngFor="let column of customTableData.columns">
+      <th class="custom-table-header" mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.label | transloco }}</th>
+      <td class="custom-table-data" mat-cell *matCellDef="let row">
+        <div class="custom-table-data-wrapper">
+          <mat-icon [style.color]="column.colorText ?? colorTextDefault" *ngIf="column.icon">{{ column.icon }}</mat-icon>
+          <span [style.color]="column.colorText ?? colorTextDefault">{{ row[column.propertyKey] }}</span>
+        </div>
+      </td>
+    </ng-container>
+    <!-- Coluna de Ações -->
+    <ng-container matColumnDef="actions" *ngIf="customTableData.hasColumnAction">
+      <th class="custom-table-header action" mat-header-cell *matHeaderCellDef>{{ 'LABELS.MSG0013' | transloco }}</th>
+      <td class="custom-table-data action" mat-cell *matCellDef="let row">
+        <div class="custom-table-data-wrapper">
+          <ng-container *ngTemplateOutlet="buttonActionRef; context: { $implicit: row }"></ng-container>
+        </div>
+      </td>
+    </ng-container>
+    <!-- Coluna/Barra de Expensão -->
+    <ng-container matColumnDef="more">
+      <th class="custom-table-header more" mat-header-cell *matHeaderCellDef></th>
+      <td class="custom-table-data more" mat-cell *matCellDef="let row">
+        <div class="custom-table-data-wrapper">
+          <mat-icon class="icon-auxiliary" (click)="expandedRow = expandedRow === row ? null : row; $event.stopPropagation()">{{
+            expandedRow !== row ? 'unfold_more' : 'unfold_less'
+          }}</mat-icon>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
+        <div class="container-expand-amimation" [@detailExpand]="row === expandedRow ? 'expanded' : 'collapsed'">
+          <div class="container-expand-content">
+            <div class="content-list" *ngFor="let columnHide of displayedColumnsHide">
+              <strong>{{ columnHide.label | transloco }}: </strong>
+              <span>{{ row[columnHide.propertyKey] }}</span>
+            </div>
+            <div class="custom-table-data-wrapper" *ngIf="showColumnAction && customTableData.hasColumnAction">
+              <div class="content-list">
+                <strong>{{ 'LABELS.MSG0013' | transloco }}: </strong>
+                <ng-container *ngTemplateOutlet="buttonActionRef; context: { $implicit: row }"></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <!-- Configurações gerais de colunas -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      (click)="clickRow.emit(row)"
+      class="custom-table-data-row"
+      *matRowDef="let row; columns: displayedColumns"
+      [class.hover-row]="expandedRow === row"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="expanded-detail-row"></tr>
+  </table>
+  <mat-paginator [pageSize]="pageSize"></mat-paginator>
+</div>
+<ng-template #buttonActionRef let-row>
+  <mat-icon class="icon-auxiliary action" [matMenuTriggerFor]="menu" [style.color]="colorTextDefault">pending</mat-icon>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="action.onClick(row)" *ngFor="let action of customTableData.actions">
+      {{ action.label | transloco }}
+    </button>
+  </mat-menu>
+</ng-template>

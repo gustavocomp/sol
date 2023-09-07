@@ -1,0 +1,19 @@
+@import 'mixins';
+
+.current-img {
+  width: 25px;
+  height: 25px;
+}
+
+.language-button {
+  padding: 0 7px;
+  .language-container {
+    @include flex-start();
+    align-items: center;
+    gap: 5px;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

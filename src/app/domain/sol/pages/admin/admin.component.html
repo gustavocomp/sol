@@ -1,0 +1,14 @@
+<main class="container-admin">
+  <sol-title-page-default [title]="'LABELS.MSG0009' | transloco" />
+
+  <section class="admin-content">
+    <div class="content-add-user">
+      <button mat-mini-fab (click)="addItem()" color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+      <span>{{ 'LABELS.MSG0029' | transloco }}</span>
+    </div>
+
+    <sol-table [dataSource]="dataSource" [customTableData]="customTableData" />
+  </section>
+</main>

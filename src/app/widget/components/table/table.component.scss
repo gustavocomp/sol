@@ -1,0 +1,110 @@
+@import 'mixins';
+@import 'colors';
+@import 'media';
+@import 'override_material';
+@import 'variables';
+
+::ng-deep {
+  @include media-breakpoint('lt-md') {
+    .mat-mdc-paginator-container {
+      justify-content: center !important;
+    }
+  }
+}
+
+:host {
+  .container-custom-table {
+    border: 1px solid $border-color-light;
+
+    .icon-auxiliary.action {
+      color: $primary-color !important;
+      cursor: pointer;
+    }
+
+    .mdc-data-table__cell {
+      padding: 5px 10px;
+    }
+
+    tr.expanded-detail-row {
+      height: 0;
+    }
+
+    .custom-table-data-row td {
+      border-bottom-width: 0;
+    }
+
+    tr.custom-table-data-row:not(.hover-row):hover {
+      background: whitesmoke;
+      cursor: pointer;
+    }
+
+    .cdk-column-expandedDetail.mat-column-expandedDetail {
+      padding: 0;
+
+      .container-expand-amimation {
+        overflow: hidden;
+        display: flex;
+
+        .container-expand-content {
+          border-top: 1px solid $border-color-light;
+          width: 100%;
+          padding: 20px;
+
+          .content-list {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .mat-mdc-header-row.cdk-header-row {
+      height: 40px;
+    }
+
+    .custom-table-header:not(:first-child),
+    .custom-table-data:not(:first-child) {
+      border-left: 1px solid $border-color-light;
+    }
+
+    .custom-table-data.action,
+    .custom-table-header.action,
+    .custom-table-data.more,
+    .custom-table-header.more {
+      text-align: center;
+      width: 10px !important;
+    }
+
+    .custom-table-header {
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid $border-color-light;
+    }
+
+    .custom-table-data {
+      .custom-table-data-wrapper {
+        @include flex-start();
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        height: 100%;
+
+        &:has(.icon-auxiliary) {
+          justify-content: center;
+          .icon-auxiliary {
+            cursor: pointer;
+          }
+        }
+
+        span {
+          white-space: normal;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import 'mixins';
+
+.admin-content {
+  @include page-container();
+
+  .content-add-user {
+    @include flex-center();
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+}

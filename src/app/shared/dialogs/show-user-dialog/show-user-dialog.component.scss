@@ -1,0 +1,12 @@
+@import 'mixins';
+@import 'colors';
+.show-user-content {
+  min-width: 300px;
+  @include flex-start(column);
+  gap: 10px;
+  span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $accent-color;
+  }
+}

@@ -1,0 +1,16 @@
+@import 'colors';
+@import 'mixins';
+
+.avatar-drawer-header {
+  @include flex-center(column);
+  padding: 20px;
+  .avatar-drawer-header-img {
+    border-radius: 50%;
+    border: 2px solid $accent-color;
+  }
+  .avatar-drawer-header-mail {
+    font-size: 0.8rem;
+    margin: 10px 0;
+    color: $icon-color;
+  }
+}
